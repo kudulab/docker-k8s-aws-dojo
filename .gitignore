@@ -1,0 +1,8 @@
+*.html
+releaser
+docker-ops
+imager*
+Dojofile.to_be_tested
+Dojofile.to_be_tested_configs
+Dojofile.example
+ops
