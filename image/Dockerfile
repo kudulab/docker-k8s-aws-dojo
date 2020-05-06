@@ -23,6 +23,8 @@ RUN apk --no-cache add \
   unzip awscliv2.zip &&\
   ./aws/install
 
+# these are needed to read aws cli help
+RUN apk add --no-cache groff less
 # Install eksctl
 # https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html
 ENV EKSCTL_VERSION=0.18.0
