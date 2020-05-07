@@ -31,6 +31,15 @@ ENV EKSCTL_VERSION=0.18.0
 RUN curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/${EKSCTL_VERSION}/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp &&\
   mv /tmp/eksctl /usr/local/bin
 
+# install bats-core
+ENV BATS_CORE_VERSION=1.2.0
+RUN cd /tmp &&\
+  git clone --depth 1 -b v${BATS_CORE_VERSION} https://github.com/bats-core/bats-core.git &&\
+  cd bats-core &&\
+  ./install.sh /opt &&\
+  cd .. && rm -r bats-core &&\
+  ln -s /opt/bin/bats /usr/bin/bats &&\
+  apk --no-cache add ncurses
 
 COPY etc_dojo.d/scripts/* /etc/dojo.d/scripts/
 # COPY etc_dojo.d/variables/* /etc/dojo.d/variables/

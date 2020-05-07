@@ -54,3 +54,11 @@ load '/opt/bats-assert/load.bash'
   assert_output --partial "2.0.10"
   assert_equal "$status" 0
 }
+@test "bats-core is installed and invokable" {
+  run /bin/bash -c "dojo -c Dojofile.to_be_tested \"bats -t tests-run-in-docker.bats\""
+  # this is printed on test failure
+  echo "output: $output"
+  assert_output --partial "ok 1"
+  assert_output --partial "not ok 2"
+  assert_equal "$status" 1
+}
