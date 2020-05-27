@@ -1,4 +1,4 @@
-FROM kudulab/k8s-dojo:83c145f1f1dda06e955ca58c7ed278d579ea465d
+FROM kudulab/k8s-dojo:1.1.1
 
 # Install aws cli version 2 (validate the files using the PGP signature)
 # https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
@@ -23,13 +23,20 @@ RUN apk --no-cache add \
   unzip awscliv2.zip &&\
   ./aws/install
 
-# these are needed to read aws cli help
-RUN apk add --no-cache groff less
+# groff less are needed to read aws cli help
+# jq is to read json files
+RUN apk add --no-cache groff less jq
 # Install eksctl
 # https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html
-ENV EKSCTL_VERSION=0.18.0
+ENV EKSCTL_VERSION=0.20.0
 RUN curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/${EKSCTL_VERSION}/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp &&\
   mv /tmp/eksctl /usr/local/bin
+
+# install kops
+ENV KOPS_VERSION=1.16.2
+RUN wget -O /tmp/kops-linux-amd64 https://github.com/kubernetes/kops/releases/download/v${KOPS_VERSION}/kops-linux-amd64 &&\
+  chmod +x /tmp/kops-linux-amd64 &&\
+  mv /tmp/kops-linux-amd64 /usr/local/bin/kops
 
 # install bats-core
 ENV BATS_CORE_VERSION=1.2.0

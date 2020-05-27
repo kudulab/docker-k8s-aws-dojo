@@ -69,7 +69,7 @@ case "${command}" in
       echo "DOJO_DOCKER_IMAGE=\"${KUDU_DOCKER_IMAGE_URL}\"" > ./Dojofile.to_be_tested
       echo "DOJO_IDENTITY_OUTER=\"$(pwd)/test/integration/identities/full\"" >> ./Dojofile.to_be_tested
       echo "DOJO_WORK_OUTER=$(pwd)/test/integration/test_dojo_work" >> ./Dojofile.to_be_tested
-      echo "DOJO_DOCKER_OPTIONS=-e K8S_ENDPOINT=\"http://my-k8s.example.com:8080\"" >> ./Dojofile.to_be_tested
+      echo "DOJO_DOCKER_OPTIONS=-v $(pwd)/test/integration/identities/without-kubeconfig/.kube:/home/dojo/.kube" >> ./Dojofile.to_be_tested
       time bats "$(pwd)/test/integration/end_user"
       ;;
   example)

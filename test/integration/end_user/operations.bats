@@ -44,14 +44,21 @@ load '/opt/bats-assert/load.bash'
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"eksctl version\""
   # this is printed on test failure
   echo "output: $output"
-  assert_output --partial "0.18.0"
+  assert_output --partial "0.20.0"
   assert_equal "$status" 0
 }
 @test "correct aws cli version is installed" {
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"aws --version\""
   # this is printed on test failure
   echo "output: $output"
-  assert_output --partial "2.0.10"
+  assert_output --partial "2.0.12"
+  assert_equal "$status" 0
+}
+@test "correct kops version is installed" {
+  run /bin/bash -c "dojo -c Dojofile.to_be_tested \"kops version\""
+  # this is printed on test failure
+  echo "output: $output"
+  assert_output --partial "1.16.2"
   assert_equal "$status" 0
 }
 @test "bats-core is installed and invokable" {
