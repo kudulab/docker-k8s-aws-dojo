@@ -1,6 +1,6 @@
 format_version: 4
 pipelines:
-  docker-k8s-dojo:
+  docker-k8s-aws-dojo:
     group: platform
     label_template: "${git[:8]}"
     materials:
