@@ -51,7 +51,7 @@ load '/opt/bats-assert/load.bash'
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"aws --version\""
   # this is printed on test failure
   echo "output: $output"
-  assert_output --partial "2.0.12"
+  assert_output --partial "2.0.17"
   assert_equal "$status" 0
 }
 @test "correct kops version is installed" {
