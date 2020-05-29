@@ -24,7 +24,7 @@ RUN apk --no-cache add \
   ./aws/install
 
 # groff less are needed to read aws cli help
-# jq is to read json files
+# jq is to read json files; recommended here: https://github.com/kubernetes/kops/blob/master/docs/examples/basic-requirements.md
 RUN apk add --no-cache groff less jq
 # Install eksctl
 # https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html
