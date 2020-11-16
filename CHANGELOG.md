@@ -1,6 +1,7 @@
 ### 0.2.0 (2020-Nov-16)
 
 * install yq to parse yaml files in bash
+* use newer base image kudulab/k8s-dojo:1.1.2
 
 ### 0.1.0 (2020-May-29)
 

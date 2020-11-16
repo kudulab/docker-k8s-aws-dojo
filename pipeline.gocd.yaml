@@ -10,7 +10,7 @@ pipelines:
           - "doc/**/*"
           - "**/*.md"
     secure_variables:
-      VAULT_TOKEN: "AES:bolhGZkOECi7h+ZbpIZvuQ==:ofmTcFQ3AOR5CPdBqVgUKLgU/4ZQWNdGMB5/bwdru44="
+      VAULT_TOKEN: "AES:m4VCWBs7BqUX5hqtishDww==:cySgo02qOGUKNUFLxf/ZJv3ZqgKNJQ1TvuzEI4wfP30="
     stages:
       - build:
           clean_workspace: true

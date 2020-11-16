@@ -1,4 +1,4 @@
-FROM kudulab/k8s-dojo:1.1.1
+FROM kudulab/k8s-dojo:1.1.2
 
 # Install aws cli version 2 (validate the files using the PGP signature)
 # https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
