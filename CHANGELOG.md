@@ -1,3 +1,7 @@
+### 0.2.0 (2020-Nov-16)
+
+* install yq to parse yaml files in bash
+
 ### 0.1.0 (2020-May-29)
 
 Initial release. Tools installed:
