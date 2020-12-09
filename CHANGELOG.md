@@ -2,6 +2,7 @@
 
 * install yq to parse yaml files in bash
 * use newer base image kudulab/k8s-dojo:1.1.2
+* install newer aws cli 2.0.30
 
 ### 0.1.0 (2020-May-29)
 
